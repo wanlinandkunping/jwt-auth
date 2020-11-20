@@ -80,6 +80,8 @@ $tokenStr = JWTAuth::token()->get(); //可以获取请求中的完整token字符
 $payload = JWTAuth::auth(); //可验证token, 并获取token中的payload部分
 $uid = $payload['uid']->getValue(); //可以继而获取payload里自定义的字段，比如uid
 
+$data = JWTAuth::getData('data'); //默认data，JWTAuth::builder(['data'=>['uid'=>1]])  data为生成token传入的值，还可获取exp，iat，jti，nbf等参数值
+
 ```
 token刷新说明：
 
