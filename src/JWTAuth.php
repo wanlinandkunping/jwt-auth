@@ -29,6 +29,17 @@ class JWTAuth extends JWT
     {
         return $this->createToken($user);
     }
+    
+    /**
+     * 获取数据
+     *
+     * @param string $data
+     * @return array|string
+     */
+    public function getData(string $data = 'data'){
+        $playLoad = $this->getPayload();
+        return (array)$playLoad[$data]->getValue();
+    }
 
     /**
      * 获取Token
